@@ -1,8 +1,12 @@
+import Layout from "@Components/Layout";
+import Card from "@Components/Card";
+
 const Home = () => {
   return (
-    <div>
+    <Layout>
       <h1>Home</h1>
-    </div>
+      <Card />
+    </Layout>
   );
 };
 

@@ -1,8 +1,10 @@
+import Layout from "@Components/Layout";
+
 const Account = () => {
   return (
-    <div>
+    <Layout>
       <h1>Account</h1>
-    </div>
+    </Layout>
   );
 };
 

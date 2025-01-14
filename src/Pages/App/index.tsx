@@ -1,4 +1,4 @@
-import { AppRoutes } from "../Account/AppRoutes";
+import { AppRoutes } from "./AppRoutes";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "@Components/Navbar";
 

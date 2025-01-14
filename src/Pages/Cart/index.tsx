@@ -1,8 +1,10 @@
+import Layout from "@Components/Layout";
+
 const Cart = () => {
   return (
-    <div>
+    <Layout>
       <h1>Cart</h1>
-    </div>
+    </Layout>
   );
 };
 

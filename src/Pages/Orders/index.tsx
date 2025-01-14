@@ -1,8 +1,10 @@
+import Layout from "@Components/Layout";
+
 const Orders = () => {
   return (
-    <div>
+    <Layout>
       <h1>Orders</h1>
-    </div>
+    </Layout>
   );
 };
 
