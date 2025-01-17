@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
+import useAppContext from "@Hooks/useAppContext";
 
 const Navbar = () => {
   // const activeStyle = {
   //   textDecoration: "underline",
   // };
   // const activeStyle = "underline";
+  const { count } = useAppContext();
 
   let activeStyle = ({ isActive } : any) => isActive ? "underline underline-offset-4" : undefined;
 
@@ -48,6 +50,7 @@ const Navbar = () => {
         </li>
         <li>
           [icon]
+          {count}
         </li>
       </ul>
     </nav>
