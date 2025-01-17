@@ -3,8 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ShoppingCartProvider } from "../../Context";
 import Navbar from "@Components/Navbar";
 
-function App() {
-  
+const App = () => {
   return (
     <BrowserRouter>
       <ShoppingCartProvider>

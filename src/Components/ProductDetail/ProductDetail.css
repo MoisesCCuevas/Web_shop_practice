@@ -1,0 +1,12 @@
+.open {
+  animation: openDetail 0.5s;
+}
+
+@keyframes openDetail {
+  from {
+    transform:translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}

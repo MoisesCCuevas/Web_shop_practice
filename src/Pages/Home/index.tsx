@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import Layout from "@Components/Layout";
 import Card from "@Components/Card";
+import ProductDetail from "@Components/ProductDetail";
 import { Item } from "@Types/Item";
 import useAppContext from "@Hooks/useAppContext";
 
 const Home = () => {
   const [items, setItems] = useState<Array<Item>>([]);
-  const { count, setCount } = useAppContext();
+  const {
+    productDetail,
+    onCloseDetail,
+    handleAddToCart,
+    handleClickCard
+  } = useAppContext();
 
   const getData = async () => {
     const response = await fetch("https://api.escuelajs.co/api/v1/products");
@@ -18,10 +24,6 @@ const Home = () => {
     if(items.length === 0) getData();
   }, [items]);
 
-  const handleAddToCart = () => {
-    setCount(count + 1);
-  };
-
   return (
     <Layout>
       <h1>Home</h1>
@@ -30,10 +32,12 @@ const Home = () => {
           <Card
             key={item.id}
             item={item}
-            onClick={handleAddToCart}
+            handleAddToCart={handleAddToCart}
+            onClick={handleClickCard}
           />
         ))}
       </div>
+      <ProductDetail productDetail={productDetail} onCloseDetail={onCloseDetail} />
     </Layout>
   );
 };

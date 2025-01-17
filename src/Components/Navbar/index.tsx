@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import useAppContext from "@Hooks/useAppContext";
 
 const Navbar = () => {
@@ -48,8 +49,8 @@ const Navbar = () => {
         <li>
           <NavLink to="/login" className={activeStyle}>Login</NavLink>
         </li>
-        <li>
-          [icon]
+        <li className="flex items-center gap-1 justify-between">
+          <ShoppingCartIcon className="h-6 w-6 text-white" />
           {count}
         </li>
       </ul>
