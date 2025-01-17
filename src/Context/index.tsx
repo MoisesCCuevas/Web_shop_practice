@@ -7,18 +7,14 @@ export const ShoppingCartProvider = ({ children }: any) => {
   const [count, setCount] = useState<number>(0);
   const [productDetail, setProductDetail] = useState<Item | null>(null);
 
-  const onCloseDetail = () => {
-    setProductDetail(null);
-  };
-
   const handleAddToCart = (e: Event) => {
     e.stopPropagation();
     setCount(count + 1);
   };
 
-  const handleClickCard = (item: Item) => {
-    setProductDetail(item);
-  };
+  const onCloseDetail = () => setProductDetail(null);
+
+  const handleClickCard = (item: Item) => setProductDetail(item);
 
   const value: any = {
     count,
