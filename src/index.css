@@ -7,6 +7,33 @@ body {
   color:azure 
 }
 
+.open {
+  animation: openDetail 0.5s;
+  height: calc(100vh - 4rem);
+}
+
+@keyframes openDetail {
+  from {
+    transform:translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 3px;
+}
+
 
 /* .logo {
   height: 6em;

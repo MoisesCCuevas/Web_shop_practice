@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
 import Layout from "@Components/Layout";
 import Card from "@Components/Card";
-import ProductDetail from "@Components/ProductDetail";
 import { Item } from "@Types/Item";
 import useAppContext from "@Hooks/useAppContext";
 
 const Home = () => {
   const [items, setItems] = useState<Array<Item>>([]);
   const {
-    productDetail,
-    onCloseDetail,
     handleAddToCart,
     handleClickCard
   } = useAppContext();
@@ -37,7 +34,6 @@ const Home = () => {
           />
         ))}
       </div>
-      <ProductDetail productDetail={productDetail} onCloseDetail={onCloseDetail} />
     </Layout>
   );
 };

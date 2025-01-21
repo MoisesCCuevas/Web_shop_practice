@@ -1,10 +1,11 @@
+import React from "react";
 import Item from "@Types/Item";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
 interface CardProps {
   key: any;
   item: Item;
-  handleAddToCart: () => void;
+  handleAddToCart: (item: Item) => void;
   onClick: (item: Item) => void;
 }
 
@@ -14,6 +15,11 @@ const Card = (props: CardProps) => {
     handleAddToCart,
     onClick
   } = props;
+
+  const addToCart = (e: React.MouseEvent<SVGSVGElement, MouseEvent>, item: Item) => {
+    e.stopPropagation();
+    handleAddToCart(item);
+  };
 
   return (
     <section
@@ -29,7 +35,7 @@ const Card = (props: CardProps) => {
         />
         <PlusIcon
           className="absolute top-0 right-0 flex justify-center items-center bg-gray-500 w-6 h-6 rounded-full text-white m-2 p1"
-          onClick={handleAddToCart}
+          onClick={e => addToCart(e, item)}
         />
       </figure>
       <p className="flex justify-between p-2">

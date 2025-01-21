@@ -10,3 +10,8 @@ export interface Item {
   title: string;
   updatedAt: string;
 }
+
+export interface ItemCart extends Item {
+  quantity: number | undefined;
+  total: number | undefined;
+}
