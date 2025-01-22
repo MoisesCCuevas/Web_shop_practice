@@ -6,6 +6,7 @@ import useAppContext from "@Hooks/useAppContext";
 const CheckoutSideMenu = () => {
   const {
     count,
+    totalOrder,
     checkoutSideOpen,
     handleCloseCart,
     cartProducts,
@@ -22,6 +23,10 @@ const CheckoutSideMenu = () => {
         {cartProducts.map((item: Item) => (
           <OrderCard key={item.id} item={item} onRemoveItem={handleRemoveFromCart} />
         ))}
+      </div>
+      <div className="pl-4 pr-10 py-2 flex justify-between items-center w-full">
+        <span className="text-lg font-light">Total:</span>
+        <span className="text-2xl font-semibold">${totalOrder}</span>
       </div>
     </SideMenu>
   );
