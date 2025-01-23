@@ -9,7 +9,7 @@ const Home = () => {
   const {
     handleAddToCart,
     handleClickCard
-  } = useAppContext();
+  } : any = useAppContext();
 
   const getData = async () => {
     const response = await fetch("https://api.escuelajs.co/api/v1/products");

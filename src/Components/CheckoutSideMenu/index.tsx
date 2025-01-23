@@ -1,5 +1,5 @@
-import { Item } from "@Types/Item";
-import OrderCard from "../OrderCard";
+import { ItemCart } from "@Types/Item";
+import ProductCard from "../ProductCard";
 import SideMenu from "../SideMenu";
 import useAppContext from "@Hooks/useAppContext";
 
@@ -10,8 +10,9 @@ const CheckoutSideMenu = () => {
     checkoutSideOpen,
     handleCloseCart,
     cartProducts,
-    handleRemoveFromCart
-} = useAppContext();
+    handleRemoveFromCart,
+    handleOrder
+} : any = useAppContext();
 
   if (!checkoutSideOpen || count === 0) return null;
   return (
@@ -19,14 +20,17 @@ const CheckoutSideMenu = () => {
       title="My Order"
       onClose={handleCloseCart}
     >
-      <div className="flex flex-col gap-3 w-full h-full px-4 py-1 overflow-y-auto overflow-x-hidden">
-        {cartProducts.map((item: Item) => (
-          <OrderCard key={item.id} item={item} onRemoveItem={handleRemoveFromCart} />
+      <div className="flex flex-col flex-1 gap-3 w-full px-4 py-1 overflow-y-auto overflow-x-hidden">
+        {cartProducts.map((item: ItemCart) => (
+          <ProductCard key={item.id} item={item} onRemoveItem={handleRemoveFromCart} />
         ))}
       </div>
-      <div className="pl-4 pr-10 py-2 flex justify-between items-center w-full">
-        <span className="text-lg font-light">Total:</span>
-        <span className="text-2xl font-semibold">${totalOrder}</span>
+      <div className="flex flex-col gap 3 items-center w-full px-4 py-2">
+        <p className="flex justify-between items-center w-full">
+          <span className="text-lg font-light">Total:</span>
+          <span className="text-2xl font-semibold">${totalOrder}</span>
+        </p>
+        <button className="bg-zinc-800 w-full h-7 rounded-md text-white shadow-md" onClick={handleOrder}>Checkout</button>
       </div>
     </SideMenu>
   );

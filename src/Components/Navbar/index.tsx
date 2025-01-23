@@ -7,7 +7,7 @@ const Navbar = () => {
   //   textDecoration: "underline",
   // };
   // const activeStyle = "underline";
-  const { count } = useAppContext();
+  const { count, handleOpenCart } : any = useAppContext();
 
   let activeStyle = ({ isActive } : any) => isActive ? "underline underline-offset-4" : undefined;
 
@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className="flex justify-between items-center fixed top-0 z-50 w-full py-5 px-8 text-sm font-light select-none bg-zinc-900 drop-shadow-md">
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg">
-          <NavLink to="/">Web Store</NavLink>
+          <NavLink to="/">PrimeZil Store</NavLink>
         </li>
         <li>
           <NavLink to="/" className={activeStyle}>All Products</NavLink>
@@ -50,7 +50,7 @@ const Navbar = () => {
           <NavLink to="/login" className={activeStyle}>Login</NavLink>
         </li>
         <li className="flex items-center gap-1 justify-between">
-          <ShoppingCartIcon className="h-6 w-6 text-white" />
+          <ShoppingCartIcon onClick={handleOpenCart}  className="h-6 w-6 text-white" />
           {count}
         </li>
       </ul>

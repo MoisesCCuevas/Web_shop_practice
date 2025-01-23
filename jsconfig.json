@@ -10,6 +10,12 @@
       "@Pages/*": [
         "./src/Pages/*"
       ],
+      "@Types/*": [
+        "./src/Types/*"
+      ],
+      "@Hooks/*": [
+        "./src/Hooks/*"
+      ],
     }
   }
 }

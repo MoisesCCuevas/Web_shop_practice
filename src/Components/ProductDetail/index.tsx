@@ -2,7 +2,7 @@ import SideMenu from "../SideMenu";
 import useAppContext from "@Hooks/useAppContext";
 
 const ProductDetail = () => {
-  const { productDetail, onCloseDetail } = useAppContext();
+  const { productDetail, onCloseDetail } : any = useAppContext();
 
   if (!productDetail) return null;
   return (
@@ -17,7 +17,7 @@ const ProductDetail = () => {
           alt={productDetail.title}
         />
       </figure>
-      <div className="flex flex-col p-6 gap-2">
+      <div className="flex flex-col p-6 gap-2 w-full">
         <p className="flex justify-between w-full">
           <span className="font-semibold">${productDetail.price}</span>
           <span className="font-medium">{productDetail.title}</span>

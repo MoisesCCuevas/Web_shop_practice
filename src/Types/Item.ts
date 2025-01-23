@@ -12,6 +12,6 @@ export interface Item {
 }
 
 export interface ItemCart extends Item {
-  quantity: number | undefined;
-  total: number | undefined;
+  quantity: number | 1;
+  total: number | 0;
 }

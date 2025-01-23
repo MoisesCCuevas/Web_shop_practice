@@ -4,6 +4,7 @@ import Home from "../Home";
 import Login from "../Login";
 import NotFound from "../NotFound";
 import Orders from "../Orders";
+import Order from "../Order";
 import { useRoutes } from "react-router-dom";
 
 export const AppRoutes = () => {
@@ -31,6 +32,10 @@ export const AppRoutes = () => {
     {
       path: "/orders",
       element: <Orders />
+    },
+    {
+      path: "/orders/last",
+      element: <Order />
     }
   ]);
   return routes;

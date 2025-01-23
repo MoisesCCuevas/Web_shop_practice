@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "@Types/Item";
+import { Item } from "@Types/Item";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
 interface CardProps {
