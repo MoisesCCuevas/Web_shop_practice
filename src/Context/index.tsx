@@ -20,7 +20,7 @@ export const ShoppingCartProvider = ({ children }: any) => {
   const totalOrder = useMemo(() => cartProducts.reduce((total, item) => total + item?.total, 0), [cartProducts]);
 
   const getData = async () => {
-    const response = await fetch("https://api.escuelajs.co/api/v1/products");
+    const response = await fetch(import.meta.env.VITE_PLATZI_API);
     const data = await response.json();
     setItems(data);
     setFilteredItems(data);
