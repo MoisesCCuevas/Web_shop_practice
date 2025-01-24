@@ -15,7 +15,7 @@ const SideMenu = (props: SideMenuProps) => {
 
   return (
     <aside
-      className="w-1/3 flex flex-col items-center fixed bg-white shadow-lg right-0 z-50 text-zinc-900 top-0 mt-16 select-none open"
+      className="w-full md:w-1/3 flex flex-col items-center fixed bg-white shadow-lg right-0 z-50 text-zinc-900 top-0 mt-16 select-none open"
     >
       <div className="flex justify-between items-center w-full p-4 select-none">
         <h2 className="font-medium text-xl">{title}</h2>

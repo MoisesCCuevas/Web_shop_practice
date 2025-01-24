@@ -1,31 +1,40 @@
-import { useState, useEffect } from "react";
 import Layout from "@Components/Layout";
 import Card from "@Components/Card";
+import Title from "@Components/Title";
 import { Item } from "@Types/Item";
 import useAppContext from "@Hooks/useAppContext";
+import { useEffect } from "react";
 
-const Home = () => {
-  const [items, setItems] = useState<Array<Item>>([]);
+interface HomeProps {
+  category?: string;
+}
+
+const Home = ({ category }: HomeProps) => {
   const {
+    filteredItems,
     handleAddToCart,
-    handleClickCard
+    handleClickCard,
+    onSearch
   } : any = useAppContext();
 
-  const getData = async () => {
-    const response = await fetch("https://api.escuelajs.co/api/v1/products");
-    const data = await response.json();
-    setItems(data);
-  };
-
   useEffect(() => {
-    if(items.length === 0) getData();
-  }, [items]);
+    onSearch(undefined, category);
+  }, [category]);
 
   return (
     <Layout>
-      <h1>Home</h1>
-      <div className="grid grid-cols-4 gap-6 w-full max-w-screen-lg">
-        {items.map((item) => (
+      <Title title={category ?? "All Products"} />
+      <input
+        type="text"
+        className="w-3/4 md:w-1/4 p-2 rounded-md mb-5 mx-3 focus:outline-gray-800 text-black"
+        placeholder="Search products"
+        onChange={(e) => onSearch(e.target.value, category)}
+      />
+      <div className="flex flex-wrap justify-center gap-6 w-full max-w-screen-lg">
+        {filteredItems.length === 0 && (
+          <p className="w-full text-center text-md">No products found</p>
+        )}
+        {filteredItems.map((item: Item) => (
           <Card
             key={item.id}
             item={item}

@@ -7,12 +7,24 @@ import Orders from "../Orders";
 import Order from "../Order";
 import { useRoutes } from "react-router-dom";
 
+const categories: Array<string> = [
+  "clothes",
+  "electronics",
+  "furniture",
+  "toys",
+  "others"
+];
+
 export const AppRoutes = () => {
   const routes = useRoutes([
     {
       path: "/",
       element: <Home />
     },
+    ...categories.map((category) => ({
+      path: `/${category}`,
+      element: <Home category={category} />
+    })),
     {
       path: "/account",
       element: <Account />
@@ -34,7 +46,7 @@ export const AppRoutes = () => {
       element: <Orders />
     },
     {
-      path: "/orders/last",
+      path: "/orders/:id",
       element: <Order />
     }
   ]);

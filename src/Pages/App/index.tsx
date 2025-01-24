@@ -4,6 +4,7 @@ import { ShoppingCartProvider } from "../../Context";
 import Navbar from "@Components/Navbar";
 import ProductDetail from "@Components/ProductDetail";
 import CheckoutSideMenu from "@Components/CheckoutSideMenu";
+import BarMenu from "@Components/BarMenu";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <AppRoutes />
         <ProductDetail/>
         <CheckoutSideMenu />
+        <BarMenu />
       </ShoppingCartProvider>
     </BrowserRouter>
   )
